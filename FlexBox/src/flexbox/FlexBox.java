@@ -10,7 +10,6 @@ package flexbox;
  * @author tom_m
  * @author danni
  */
-
 import java.util.Scanner;
 import java.util.InputMismatchException;
 
@@ -22,14 +21,14 @@ public class FlexBox {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         int boxType = 0;
-        
-        try{
+
+        try {
             System.out.println("Please enter the type of box you need: ");
             boxType = input.nextInt();
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Error");
         }
+
     }
-    
+
 }
