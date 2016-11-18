@@ -19,7 +19,7 @@ public class FlexBox {
             try{
                 int userInput = input.nextInt();
                 if(userInput >= 1 && userInput <= 5){
-                    System.out.println("You entered box type "+ userInput);
+                    System.out.println("You entered box type " + userInput);
                     boxType = userInput;
                     errorCount = 0;
                     break;
