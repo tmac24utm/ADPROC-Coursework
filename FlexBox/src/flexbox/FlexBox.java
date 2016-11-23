@@ -1,28 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package flexbox2;
+
+package flexbox;
 
 /**
- *
  * @author danni
+ * @author tom_m
  */
-
 import java.util.Scanner;
 import java.util.InputMismatchException;
 
-public class FlexBox2 {
+public class FlexBox {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-<<<<<<< HEAD
-        
-        
-=======
+
         Scanner input = new Scanner(System.in);
         int cardGrade = 0;
         int colourPrint = 0;
@@ -101,7 +90,6 @@ public class FlexBox2 {
             }
 
         }
->>>>>>> origin/master
     }
-    
+
 }
