@@ -13,6 +13,7 @@ public class FlexBoxUI extends javax.swing.JFrame {
     /**
      * Creates new form FlexBoxUI
      */
+    
     public FlexBoxUI() {
         initComponents();
     }
@@ -26,6 +27,7 @@ public class FlexBoxUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        ResultTextbox2 = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         FlexboxTitle = new javax.swing.JLabel();
         FlexboxComboBoxCardGrades = new javax.swing.JComboBox<>();
@@ -38,6 +40,10 @@ public class FlexBoxUI extends javax.swing.JFrame {
         LengthTextbox = new javax.swing.JTextField();
         Height = new javax.swing.JLabel();
         HeightTextbox = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        Result1 = new javax.swing.JLabel();
+
+        ResultTextbox2.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -80,13 +86,31 @@ public class FlexBoxUI extends javax.swing.JFrame {
 
         HeightTextbox.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
 
+        jButton1.setText("Button 1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        Result1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(FlexboxTitle)
+                .addGap(162, 162, 162))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton1)
+                        .addGap(18, 18, 18)
+                        .addComponent(Result1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(Width)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -99,24 +123,18 @@ public class FlexBoxUI extends javax.swing.JFrame {
                         .addComponent(Height)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(HeightTextbox, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(16, 16, 16)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(BoxSize)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(GradeOfCard)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(FlexboxComboBoxCardGrades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(86, 86, 86))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(181, 181, 181)
-                        .addComponent(FlexboxTitle))
+                                .addComponent(FlexboxComboBoxCardGrades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(Title2)))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -139,7 +157,11 @@ public class FlexBoxUI extends javax.swing.JFrame {
                     .addComponent(LengthTextbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Height)
                     .addComponent(HeightTextbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(261, Short.MAX_VALUE))
+                .addGap(36, 36, 36)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1)
+                    .addComponent(Result1))
+                .addContainerGap(235, Short.MAX_VALUE))
         );
 
         Title2.getAccessibleContext().setAccessibleName("");
@@ -161,6 +183,48 @@ public class FlexBoxUI extends javax.swing.JFrame {
     private void WidthTextboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WidthTextboxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_WidthTextboxActionPerformed
+
+    
+    
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       
+        try{
+            float num1, num2, num3, result ;
+            num1 = Float.parseFloat(HeightTextbox.getText());
+            num2 = Float.parseFloat(LengthTextbox.getText());
+            num3 = Float.parseFloat(WidthTextbox.getText());
+            result = ((2*(num1*num2)) + (2*(num2*num3)) + (2*(num1*num3)));
+            Result1.setText(String.valueOf(result));
+        }catch(Exception e){
+           Result1.setText(String.valueOf("Please insert only numbers"));
+        }
+        
+         try{
+            float num1,  result = 0;
+            num1 = Float.parseFloat(Result1.getText());
+            String num2 = (String)FlexboxComboBoxCardGrades.getSelectedItem();
+            switch (num2){
+                case "1":
+                    result = (float) (num1 * 0.5);
+                    break;
+                case "2":
+                    result = (float) (num1 * 0.6);
+                    break;
+                case "3":
+                    result = (float) (num1 * 0.72);
+                    break;
+                case "4":
+                    result = (float) (num1 * 0.9);
+                    break;
+                case "5":
+                    result = (float) (num1 * 1.4);
+                    break;
+            }
+            Result1.setText(String.valueOf(result));
+        }catch(Exception e){
+           Result1.setText(String.valueOf("Please insert only numbers"));
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -206,9 +270,12 @@ public class FlexBoxUI extends javax.swing.JFrame {
     private javax.swing.JTextField HeightTextbox;
     private javax.swing.JLabel Length;
     private javax.swing.JTextField LengthTextbox;
+    private javax.swing.JLabel Result1;
+    private javax.swing.JTextField ResultTextbox2;
     private javax.swing.JLabel Title2;
     private javax.swing.JLabel Width;
     private javax.swing.JTextField WidthTextbox;
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
