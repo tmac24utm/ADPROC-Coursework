@@ -192,7 +192,7 @@ public class FlexBoxUI extends javax.swing.JFrame {
             num3 = Float.parseFloat(WidthTextbox.getText());
             result = ((2*(num1*num2)) + (2*(num2*num3)) + (2*(num1*num3)));
             Result1.setText(String.valueOf(result));
-        }catch(Exception e){
+        }catch(NumberFormatException e){
            Result1.setText(String.valueOf("Please insert only numbers"));
         }
         
@@ -218,7 +218,7 @@ public class FlexBoxUI extends javax.swing.JFrame {
                     break;
             }
             Result1.setText(String.valueOf(result));
-        }catch(Exception e){
+        }catch(NumberFormatException e){
            Result1.setText(String.valueOf("Please insert only numbers"));
         }
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -248,10 +248,8 @@ public class FlexBoxUI extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FlexBoxUI().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new FlexBoxUI().setVisible(true);
         });
     }
 
