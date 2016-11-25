@@ -30,15 +30,25 @@ public class FlexBoxUI extends javax.swing.JFrame {
         FlexboxComboBoxCardGrades = new javax.swing.JComboBox<>();
         Title2 = new javax.swing.JLabel();
         GradeOfCard = new javax.swing.JLabel();
-        BoxSize = new javax.swing.JLabel();
         WidthTextbox = new javax.swing.JTextField();
         Width = new javax.swing.JLabel();
         Length = new javax.swing.JLabel();
         LengthTextbox = new javax.swing.JTextField();
         Height = new javax.swing.JLabel();
         HeightTextbox = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        FindCost = new javax.swing.JButton();
         Result1 = new javax.swing.JLabel();
+        ColourPrint = new javax.swing.JLabel();
+        ColourBox = new javax.swing.JComboBox<>();
+        ReinforcedBottom = new javax.swing.JLabel();
+        ReinforcedB = new javax.swing.JComboBox<>();
+        ReinforcedCorner = new javax.swing.JLabel();
+        ReinforcedC = new javax.swing.JComboBox<>();
+        SealableTops = new javax.swing.JLabel();
+        SealableTopsBox = new javax.swing.JComboBox<>();
+        Amount = new javax.swing.JLabel();
+        AmountTextbox = new javax.swing.JTextField();
+        TotalCost = new javax.swing.JLabel();
 
         ResultTextbox2.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
 
@@ -56,12 +66,8 @@ public class FlexBoxUI extends javax.swing.JFrame {
         Title2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         Title2.setText("Please specify the following details for your order:");
 
-        GradeOfCard.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
+        GradeOfCard.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         GradeOfCard.setText("Grade of card:");
-
-        BoxSize.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        BoxSize.setText("Box Size:");
-        BoxSize.setToolTipText("");
 
         WidthTextbox.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         WidthTextbox.addActionListener(new java.awt.event.ActionListener() {
@@ -70,83 +76,167 @@ public class FlexBoxUI extends javax.swing.JFrame {
             }
         });
 
-        Width.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
+        Width.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         Width.setText("Width:");
 
-        Length.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
+        Length.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         Length.setText("Length:");
 
         LengthTextbox.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
 
-        Height.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
+        Height.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         Height.setText("Height:");
 
         HeightTextbox.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
 
-        jButton1.setText("Button 1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        FindCost.setText("Find Cost");
+        FindCost.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                FindCostActionPerformed(evt);
             }
         });
 
-        Result1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Result1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        ColourPrint.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        ColourPrint.setText("Colour Print:");
+
+        ColourBox.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
+        ColourBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1", "2" }));
+
+        ReinforcedBottom.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        ReinforcedBottom.setText("Reinforced Bottom");
+
+        ReinforcedB.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        ReinforcedB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "No", "Yes" }));
+        ReinforcedB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ReinforcedBActionPerformed(evt);
+            }
+        });
+
+        ReinforcedCorner.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        ReinforcedCorner.setText("Reinforced Corner");
+
+        ReinforcedC.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        ReinforcedC.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "No", "Yes" }));
+        ReinforcedC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ReinforcedCActionPerformed(evt);
+            }
+        });
+
+        SealableTops.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        SealableTops.setText("Sealable tops");
+
+        SealableTopsBox.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        SealableTopsBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "No", "Yes" }));
+        SealableTopsBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SealableTopsBoxActionPerformed(evt);
+            }
+        });
+
+        Amount.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        Amount.setText("Amount ");
+
+        AmountTextbox.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
+
+        TotalCost.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        TotalCost.setText("Total Cost:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(FlexboxTitle)
-                .addGap(162, 162, 162))
-            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(0, 92, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButton1)
-                        .addGap(18, 18, 18)
-                        .addComponent(Result1))
+                        .addGap(6, 6, 6)
+                        .addComponent(Title2))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(Width)
+                        .addGap(20, 20, 20)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(SealableTops)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(SealableTopsBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(ReinforcedBottom)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(ReinforcedB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(11, 11, 11)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(ReinforcedCorner)
+                            .addComponent(Amount))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(ReinforcedC, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(AmountTextbox, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(133, 133, 133)
+                        .addComponent(FlexboxTitle))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(GradeOfCard)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(FlexboxComboBoxCardGrades, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40)
+                        .addComponent(ColourPrint)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(ColourBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(Width)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(WidthTextbox, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(24, 24, 24)
+                        .addGap(18, 18, 18)
                         .addComponent(Length)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(LengthTextbox, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(16, 16, 16)
+                        .addGap(25, 25, 25)
                         .addComponent(Height)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(HeightTextbox, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(HeightTextbox, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(62, 62, 62))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(BoxSize)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(GradeOfCard)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(FlexboxComboBoxCardGrades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(44, 44, 44)
+                        .addComponent(FindCost))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(Title2)))
+                        .addGap(35, 35, 35)
+                        .addComponent(TotalCost)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Result1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
+                .addContainerGap()
                 .addComponent(FlexboxTitle)
-                .addGap(18, 18, 18)
+                .addGap(21, 21, 21)
                 .addComponent(Title2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(33, 33, 33)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(FlexboxComboBoxCardGrades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(GradeOfCard))
-                .addGap(14, 14, 14)
-                .addComponent(BoxSize)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(ColourBox, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(GradeOfCard)
+                    .addComponent(ColourPrint)
+                    .addComponent(FlexboxComboBoxCardGrades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ReinforcedBottom)
+                    .addComponent(ReinforcedB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ReinforcedCorner)
+                    .addComponent(ReinforcedC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(SealableTops)
+                    .addComponent(SealableTopsBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Amount)
+                    .addComponent(AmountTextbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Width)
                     .addComponent(WidthTextbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -154,11 +244,13 @@ public class FlexBoxUI extends javax.swing.JFrame {
                     .addComponent(LengthTextbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Height)
                     .addComponent(HeightTextbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1)
+                .addGap(32, 32, 32)
+                .addComponent(FindCost)
+                .addGap(28, 28, 28)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TotalCost)
                     .addComponent(Result1))
-                .addContainerGap(235, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         Title2.getAccessibleContext().setAccessibleName("");
@@ -167,11 +259,11 @@ public class FlexBoxUI extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -183,45 +275,115 @@ public class FlexBoxUI extends javax.swing.JFrame {
 
     
     
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       
-        try{
-            float num1, num2, num3, result ;
+    private void FindCostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FindCostActionPerformed
+    double result = 0;  
+        try {
+            float num1, num2, num3, Area;
             num1 = Float.parseFloat(HeightTextbox.getText());
             num2 = Float.parseFloat(LengthTextbox.getText());
             num3 = Float.parseFloat(WidthTextbox.getText());
-            result = ((2*(num1*num2)) + (2*(num2*num3)) + (2*(num1*num3)));
-            Result1.setText(String.valueOf(result));
-        }catch(NumberFormatException e){
-           Result1.setText(String.valueOf("Please insert only numbers"));
+            Area = ((2 * (num1 * num2)) + (2 * (num2 * num3)) + (2 * (num1 * num3)));
+            Result1.setText(String.valueOf(Area));
+        } catch (NumberFormatException e) {
+            Result1.setText(String.valueOf("Please insert only numbers and do not keep the textbox blank."));
         }
-        
-         try{
-            float num1,  result = 0;
+
+        try {
+            float num1;
             num1 = Float.parseFloat(Result1.getText());
-            String num2 = (String)FlexboxComboBoxCardGrades.getSelectedItem();
-            switch (num2){
+            String num2 = (String) FlexboxComboBoxCardGrades.getSelectedItem();
+            switch (num2) {
                 case "1":
-                    result = (float) (num1 * 0.5);
+                    result = (num1 * 0.5);
                     break;
                 case "2":
-                    result = (float) (num1 * 0.6);
+                    result = (num1 * 0.6);
                     break;
                 case "3":
-                    result = (float) (num1 * 0.72);
+                    result = (num1 * 0.72);
                     break;
                 case "4":
-                    result = (float) (num1 * 0.9);
+                    result = (num1 * 0.9);
                     break;
                 case "5":
-                    result = (float) (num1 * 1.4);
+                    result = (num1 * 1.4);
                     break;
             }
-            Result1.setText(String.valueOf(result));
-        }catch(NumberFormatException e){
-           Result1.setText(String.valueOf("Please insert only numbers"));
+           // Result1.setText(String.valueOf(result));
+        } catch (NumberFormatException e) {
+            Result1.setText(String.valueOf("Please insert only numbers and keep the textbox blank."));
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    
+    String colourPicker = (String) ColourBox.getSelectedItem();
+    switch (colourPicker){
+        case "0":
+            //Result1.setText(String.valueOf(result));
+            break;
+        case "1":
+            //Result1.setText(String.valueOf(Math.round(result * 1.13)));
+            result =  (result * 1.13);
+            break;
+        case "2":
+            //Result1.setText(String.valueOf(Math.round((result * 1.16))));
+            result =  (result * 1.16);
+            break;
+    }
+    
+    String ReinforcedBoxBottom = (String) ReinforcedB.getSelectedItem();
+    switch (ReinforcedBoxBottom){
+        case "Yes":
+            result =  (result * 1.14);
+            //Result1.setText(String.valueOf((result)));
+            break;
+       case "No":
+            //Result1.setText(String.valueOf((result)));
+            break;
+    }
+    
+    String ReinforcedBoxCorner = (String) ReinforcedC.getSelectedItem();
+    switch (ReinforcedBoxCorner){
+        case "Yes":
+            result =  (result * 1.10);
+            //Result1.setText(String.valueOf((result)));
+            break;
+       case "No":
+            //Result1.setText(String.valueOf((result)));
+            break;
+    }
+    
+    String SealableBox = (String) SealableTopsBox.getSelectedItem();
+    switch (SealableBox){
+        case "Yes":
+            result =  (result * 1.08);
+            Result1.setText(String.valueOf((result)));
+            break;
+       case "No":
+            Result1.setText(String.valueOf((result)));
+            break;
+    }
+    
+    try{
+        float amount;
+        amount = Float.parseFloat(AmountTextbox.getText());
+        result = result * amount;
+        Result1.setText(String.valueOf((result)));
+    } catch (NumberFormatException e){
+        Result1.setText(String.valueOf("Please insert only numbers and do not keep the textbox blank."));
+    }
+    
+    }//GEN-LAST:event_FindCostActionPerformed
+
+    private void ReinforcedBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReinforcedBActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ReinforcedBActionPerformed
+
+    private void ReinforcedCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReinforcedCActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ReinforcedCActionPerformed
+
+    private void SealableTopsBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SealableTopsBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SealableTopsBoxActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -254,7 +416,11 @@ public class FlexBoxUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel BoxSize;
+    private javax.swing.JLabel Amount;
+    private javax.swing.JTextField AmountTextbox;
+    private javax.swing.JComboBox<String> ColourBox;
+    private javax.swing.JLabel ColourPrint;
+    private javax.swing.JButton FindCost;
     private javax.swing.JComboBox<String> FlexboxComboBoxCardGrades;
     private javax.swing.JLabel FlexboxTitle;
     private javax.swing.JLabel GradeOfCard;
@@ -262,12 +428,18 @@ public class FlexBoxUI extends javax.swing.JFrame {
     private javax.swing.JTextField HeightTextbox;
     private javax.swing.JLabel Length;
     private javax.swing.JTextField LengthTextbox;
+    private javax.swing.JComboBox<String> ReinforcedB;
+    private javax.swing.JLabel ReinforcedBottom;
+    private javax.swing.JComboBox<String> ReinforcedC;
+    private javax.swing.JLabel ReinforcedCorner;
     private javax.swing.JLabel Result1;
     private javax.swing.JTextField ResultTextbox2;
+    private javax.swing.JLabel SealableTops;
+    private javax.swing.JComboBox<String> SealableTopsBox;
     private javax.swing.JLabel Title2;
+    private javax.swing.JLabel TotalCost;
     private javax.swing.JLabel Width;
     private javax.swing.JTextField WidthTextbox;
-    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
