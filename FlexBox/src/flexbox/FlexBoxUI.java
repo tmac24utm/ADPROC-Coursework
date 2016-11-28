@@ -381,8 +381,6 @@ public class FlexBoxUI extends javax.swing.JFrame {
         } catch (NumberFormatException e) {
             Result1.setText(String.valueOf("Please insert only numbers and do not keep the textbox blank."));
         }
-
-       if ()
              
         
         
