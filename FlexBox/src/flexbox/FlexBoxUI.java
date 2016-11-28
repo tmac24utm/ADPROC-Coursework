@@ -4,13 +4,11 @@ package flexbox;
  * @author danni
  * @author tom_m
  */
-
 public class FlexBoxUI extends javax.swing.JFrame {
 
     /**
      * Creates new form FlexBoxUI
      */
-    
     public FlexBoxUI() {
         initComponents();
     }
@@ -103,6 +101,11 @@ public class FlexBoxUI extends javax.swing.JFrame {
 
         ColourBox.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
         ColourBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1", "2" }));
+        ColourBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ColourBoxActionPerformed(evt);
+            }
+        });
 
         ReinforcedBottom.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         ReinforcedBottom.setText("Reinforced Bottom");
@@ -206,9 +209,9 @@ public class FlexBoxUI extends javax.swing.JFrame {
                         .addComponent(FindCost))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(35, 35, 35)
-                        .addComponent(TotalCost)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Result1)
+                        .addComponent(TotalCost)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Result1)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -219,11 +222,12 @@ public class FlexBoxUI extends javax.swing.JFrame {
                 .addGap(21, 21, 21)
                 .addComponent(Title2)
                 .addGap(33, 33, 33)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ColourBox, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(GradeOfCard)
-                    .addComponent(ColourPrint)
-                    .addComponent(FlexboxComboBoxCardGrades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ColourBox, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(GradeOfCard)
+                        .addComponent(ColourPrint)
+                        .addComponent(FlexboxComboBoxCardGrades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ReinforcedBottom)
@@ -247,9 +251,9 @@ public class FlexBoxUI extends javax.swing.JFrame {
                 .addGap(32, 32, 32)
                 .addComponent(FindCost)
                 .addGap(28, 28, 28)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TotalCost)
-                    .addComponent(Result1))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(Result1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(TotalCost, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(32, Short.MAX_VALUE))
         );
 
@@ -273,10 +277,17 @@ public class FlexBoxUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_WidthTextboxActionPerformed
 
-    
-    
+
     private void FindCostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FindCostActionPerformed
-    double result = 0;  
+        double result = 0;
+        String ComboBoxGrade = (String) FlexboxComboBoxCardGrades.getSelectedItem();
+        String ColourPicker = (String) ColourBox.getSelectedItem();
+        String ReinforcedBoxBottom = (String) ReinforcedB.getSelectedItem();
+        String ReinforcedBoxCorner = (String) ReinforcedC.getSelectedItem();
+        String SealableBox = (String) SealableTopsBox.getSelectedItem();
+        int boxType = 0;
+        boolean PositiveType = true;
+
         try {
             float num1, num2, num3, Area;
             num1 = Float.parseFloat(HeightTextbox.getText());
@@ -291,8 +302,8 @@ public class FlexBoxUI extends javax.swing.JFrame {
         try {
             float num1;
             num1 = Float.parseFloat(Result1.getText());
-            String num2 = (String) FlexboxComboBoxCardGrades.getSelectedItem();
-            switch (num2) {
+            //String num2 = (String) FlexboxComboBoxCardGrades.getSelectedItem();
+            switch (ComboBoxGrade) {
                 case "1":
                     result = (num1 * 0.5);
                     break;
@@ -309,68 +320,79 @@ public class FlexBoxUI extends javax.swing.JFrame {
                     result = (num1 * 1.4);
                     break;
             }
-           // Result1.setText(String.valueOf(result));
+            //Result1.setText(String.valueOf(result));
         } catch (NumberFormatException e) {
             Result1.setText(String.valueOf("Please insert only numbers and keep the textbox blank."));
         }
-    
-    String colourPicker = (String) ColourBox.getSelectedItem();
-    switch (colourPicker){
-        case "0":
-            //Result1.setText(String.valueOf(result));
-            break;
-        case "1":
-            //Result1.setText(String.valueOf(Math.round(result * 1.13)));
-            result =  (result * 1.13);
-            break;
-        case "2":
-            //Result1.setText(String.valueOf(Math.round((result * 1.16))));
-            result =  (result * 1.16);
-            break;
-    }
-    
-    String ReinforcedBoxBottom = (String) ReinforcedB.getSelectedItem();
-    switch (ReinforcedBoxBottom){
-        case "Yes":
-            result =  (result * 1.14);
+
+        //String colourPicker = (String) ColourBox.getSelectedItem();
+        switch (ColourPicker) {
+            case "0":
+                //Result1.setText(String.valueOf(result));
+                break;
+            case "1":
+                //Result1.setText(String.valueOf(Math.round(result * 1.13)));
+                result = (result * 1.13);
+                break;
+            case "2":
+                //Result1.setText(String.valueOf(Math.round((result * 1.16))));
+                result = (result * 1.16);
+                break;
+        }
+
+        //String ReinforcedBoxBottom = (String) ReinforcedB.getSelectedItem();
+        switch (ReinforcedBoxBottom) {
+            case "Yes":
+                result = (result * 1.14);
+                //Result1.setText(String.valueOf((result)));
+                break;
+            case "No":
+                //Result1.setText(String.valueOf((result)));
+                break;
+        }
+
+        //String ReinforcedBoxCorner = (String) ReinforcedC.getSelectedItem();
+        switch (ReinforcedBoxCorner) {
+            case "Yes":
+                result = (result * 1.10);
+                //Result1.setText(String.valueOf((result)));
+                break;
+            case "No":
+                //Result1.setText(String.valueOf((result)));
+                break;
+        }
+
+        //String SealableBox = (String) SealableTopsBox.getSelectedItem();
+        switch (SealableBox) {
+            case "Yes":
+                result = (result * 1.08);
+                //Result1.setText(String.valueOf((result)));
+                break;
+            case "No":
+                //Result1.setText(String.valueOf((result)));
+                break;
+        }
+
+        try {
+            float amount;
+            amount = Float.parseFloat(AmountTextbox.getText());
+            result = result * amount;
             //Result1.setText(String.valueOf((result)));
-            break;
-       case "No":
-            //Result1.setText(String.valueOf((result)));
-            break;
-    }
-    
-    String ReinforcedBoxCorner = (String) ReinforcedC.getSelectedItem();
-    switch (ReinforcedBoxCorner){
-        case "Yes":
-            result =  (result * 1.10);
-            //Result1.setText(String.valueOf((result)));
-            break;
-       case "No":
-            //Result1.setText(String.valueOf((result)));
-            break;
-    }
-    
-    String SealableBox = (String) SealableTopsBox.getSelectedItem();
-    switch (SealableBox){
-        case "Yes":
-            result =  (result * 1.08);
+        } catch (NumberFormatException e) {
+            Result1.setText(String.valueOf("Please insert only numbers and do not keep the textbox blank."));
+        }
+
+       if ()
+             
+        
+        
+        if (boxType == 1 || boxType == 2 || boxType == 3 || boxType == 4 || boxType == 5 ) {
             Result1.setText(String.valueOf((result)));
-            break;
-       case "No":
-            Result1.setText(String.valueOf((result)));
-            break;
-    }
-    
-    try{
-        float amount;
-        amount = Float.parseFloat(AmountTextbox.getText());
-        result = result * amount;
-        Result1.setText(String.valueOf((result)));
-    } catch (NumberFormatException e){
-        Result1.setText(String.valueOf("Please insert only numbers and do not keep the textbox blank."));
-    }
-    
+        } else {
+            Result1.setText(String.valueOf("Invalid Box Type, Please change order"));
+        }
+
+
     }//GEN-LAST:event_FindCostActionPerformed
 
     private void ReinforcedBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReinforcedBActionPerformed
@@ -384,6 +406,11 @@ public class FlexBoxUI extends javax.swing.JFrame {
     private void SealableTopsBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SealableTopsBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_SealableTopsBoxActionPerformed
+
+    private void ColourBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ColourBoxActionPerformed
+
+
+    }//GEN-LAST:event_ColourBoxActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
