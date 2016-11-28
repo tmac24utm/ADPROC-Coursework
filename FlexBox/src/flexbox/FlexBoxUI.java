@@ -277,7 +277,6 @@ public class FlexBoxUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_WidthTextboxActionPerformed
 
-
     private void FindCostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FindCostActionPerformed
         double result = 0;
         String ComboBoxGrade = (String) FlexboxComboBoxCardGrades.getSelectedItem();
@@ -286,7 +285,6 @@ public class FlexBoxUI extends javax.swing.JFrame {
         String ReinforcedBoxCorner = (String) ReinforcedC.getSelectedItem();
         String SealableBox = (String) SealableTopsBox.getSelectedItem();
         int boxType = 0;
-        boolean PositiveType = true;
 
         try {
             float num1, num2, num3, Area;
@@ -295,13 +293,8 @@ public class FlexBoxUI extends javax.swing.JFrame {
             num3 = Float.parseFloat(WidthTextbox.getText());
             Area = ((2 * (num1 * num2)) + (2 * (num2 * num3)) + (2 * (num1 * num3)));
             Result1.setText(String.valueOf(Area));
-        } catch (NumberFormatException e) {
-            Result1.setText(String.valueOf("Please insert only numbers and do not keep the textbox blank."));
-        }
-
-        try {
-            float num1;
             num1 = Float.parseFloat(Result1.getText());
+            
             //String num2 = (String) FlexboxComboBoxCardGrades.getSelectedItem();
             switch (ComboBoxGrade) {
                 case "1":
@@ -321,114 +314,107 @@ public class FlexBoxUI extends javax.swing.JFrame {
                     break;
             }
             //Result1.setText(String.valueOf(result));
-        } catch (NumberFormatException e) {
-            Result1.setText(String.valueOf("Please insert only numbers and keep the textbox blank."));
-        }
 
-        //String colourPicker = (String) ColourBox.getSelectedItem();
-        switch (ColourPicker) {
-            case "0":
-                if(ComboBoxGrade == "1" || ComboBoxGrade == "2" || ComboBoxGrade == "3"){
-                    boxType = 1;
-                } else {
-                    boxType = 6;
-                }
-                //Result1.setText(String.valueOf(result));
-                break;
-            case "1":
-                if(ComboBoxGrade == "2" || ComboBoxGrade == "3" || ComboBoxGrade == "4"){
-                    boxType = 2;
-                } else {
-                    boxType = 6;
-                }
-                //Result1.setText(String.valueOf(Math.round(result * 1.13)));
-                result = (result * 1.13);
-                break;
-            case "2":
-                 if(ComboBoxGrade == "2"){
-                     boxType = 3;
-                 }
-                 if (ComboBoxGrade == "3" || ComboBoxGrade == "4" || ComboBoxGrade == "5"){
-                     boxType = 5;
-                }
-                //Result1.setText(String.valueOf(Math.round((result * 1.16))));
-                result = (result * 1.16);
-                break;
-        }
+            //String colourPicker = (String) ColourBox.getSelectedItem();
+            switch (ColourPicker) {
+                case "0":
+                    if ("1".equals(ComboBoxGrade) || "2".equals(ComboBoxGrade) || "3".equals(ComboBoxGrade)) {
+                        boxType = 1;
+                    } else {
+                        boxType = 6; //Setting it to 6 returns an error.
+                    }
+                    //Result1.setText(String.valueOf(result));
+                    break;
+                case "1":
+                    if ("2".equals(ComboBoxGrade) || "3".equals(ComboBoxGrade) || "4".equals(ComboBoxGrade)) {
+                        boxType = 2;
+                    } else {
+                        boxType = 6;
+                    }
+                    //Result1.setText(String.valueOf(Math.round(result * 1.13)));
+                    result = (result * 1.13);
+                    break;
+                case "2":
+                    if ("2".equals(ComboBoxGrade)) {
+                        boxType = 3;
+                    }
+                    if ("3".equals(ComboBoxGrade) || "4".equals(ComboBoxGrade) || "5".equals(ComboBoxGrade)) {
+                        boxType = 5;
+                    }
+                    //Result1.setText(String.valueOf(Math.round((result * 1.16))));
+                    result = (result * 1.16);
+                    break;
+            }
 
-        //String ReinforcedBoxBottom = (String) ReinforcedB.getSelectedItem();
-        switch (ReinforcedBoxBottom) {
-            case "Yes":
-                if (boxType == 1){
-                    boxType = 6;
-                }
-                if (boxType == 2) {
-                    boxType = 6;
-                }
-                if (boxType == 3) {
-                    boxType = 4;
-                }
-                result = (result * 1.14);
-                //Result1.setText(String.valueOf((result)));
-                break;
-            case "No":
-                if (boxType == 3){
-                    boxType = 3;
-                }
-                if (boxType == 4 || boxType == 5){
-                    boxType = 6;
-                }
-                //Result1.setText(String.valueOf((result)));
-                break;
-        }
+            //String ReinforcedBoxBottom = (String) ReinforcedB.getSelectedItem();
+            switch (ReinforcedBoxBottom) {
+                case "Yes":
+                    if (boxType == 1) {
+                        boxType = 6;
+                    }
+                    if (boxType == 2) {
+                        boxType = 6;
+                    }
+                    if (boxType == 3) {
+                        boxType = 4;
+                    }
+                    result = (result * 1.14);
+                    //Result1.setText(String.valueOf((result)));
+                    break;
+                case "No":
+                    if (boxType == 3) {
+                        boxType = 3;
+                    }
+                    if (boxType == 4 || boxType == 5) {
+                        boxType = 6;
+                    }
+                    //Result1.setText(String.valueOf((result)));
+                    break;
+            }
 
-        //String ReinforcedBoxCorner = (String) ReinforcedC.getSelectedItem();
-        switch (ReinforcedBoxCorner) {
-            case "Yes":
-                 if (boxType !=5){
-                     boxType = 6;
-                 }
-                
-                result = (result * 1.10);
-                //Result1.setText(String.valueOf((result)));
-                break;
-            case "No":
-                if(boxType == 5){
-                    boxType = 6;
-                }
-                //Result1.setText(String.valueOf((result)));
-                break;
-        }
+            //String ReinforcedBoxCorner = (String) ReinforcedC.getSelectedItem();
+            switch (ReinforcedBoxCorner) {
+                case "Yes":
+                    if (boxType != 5) {
+                        boxType = 6;
+                    }
 
-        //String SealableBox = (String) SealableTopsBox.getSelectedItem();
-        switch (SealableBox) {
-            case "Yes":
-                result = (result * 1.08);
-                //Result1.setText(String.valueOf((result)));
-                break;
-            case "No":
-                //Result1.setText(String.valueOf((result)));
-                break;
-        }
+                    result = (result * 1.10);
+                    //Result1.setText(String.valueOf((result)));
+                    break;
+                case "No":
+                    if (boxType == 5) {
+                        boxType = 6;
+                    }
+                    //Result1.setText(String.valueOf((result)));
+                    break;
+            }
 
-        try {
+            //String SealableBox = (String) SealableTopsBox.getSelectedItem();
+            switch (SealableBox) {
+                case "Yes":
+                    result = (result * 1.08);
+                    //Result1.setText(String.valueOf((result)));
+                    break;
+                case "No":
+                    //Result1.setText(String.valueOf((result)));
+                    break;
+            }
+
             float amount;
             amount = Float.parseFloat(AmountTextbox.getText());
             result = result * amount;
             //Result1.setText(String.valueOf((result)));
+
+            if (boxType == 1 || boxType == 2 || boxType == 3 || boxType == 4 || boxType == 5) {
+                Result1.setText(String.valueOf((result)));
+            } else {
+                Result1.setText(String.valueOf("Invalid Box Type, Please change order"));
+            }
+
         } catch (NumberFormatException e) {
             Result1.setText(String.valueOf("Please insert only numbers and do not keep the textbox blank."));
         }
-        
-        
-        
-        if (boxType == 1 || boxType == 2 || boxType == 3 || boxType == 4 || boxType == 5 ) {
-            Result1.setText(String.valueOf((result)));
-        } else {
-            Result1.setText(String.valueOf("Invalid Box Type, Please change order"));
-        }
-
-
     }//GEN-LAST:event_FindCostActionPerformed
 
     private void ReinforcedBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReinforcedBActionPerformed
@@ -444,43 +430,8 @@ public class FlexBoxUI extends javax.swing.JFrame {
     }//GEN-LAST:event_SealableTopsBoxActionPerformed
 
     private void ColourBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ColourBoxActionPerformed
-
-
+        // TODO add your handling code here:
     }//GEN-LAST:event_ColourBoxActionPerformed
-
-    /**
-     *
-     * @param args
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FlexBoxUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FlexBoxUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FlexBoxUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FlexBoxUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> {
-            new FlexBoxUI().setVisible(true);
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Amount;
