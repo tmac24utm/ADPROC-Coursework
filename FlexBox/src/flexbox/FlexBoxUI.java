@@ -328,13 +328,29 @@ public class FlexBoxUI extends javax.swing.JFrame {
         //String colourPicker = (String) ColourBox.getSelectedItem();
         switch (ColourPicker) {
             case "0":
+                if(ComboBoxGrade == "1" || ComboBoxGrade == "2" || ComboBoxGrade == "3"){
+                    boxType = 1;
+                } else {
+                    boxType = 6;
+                }
                 //Result1.setText(String.valueOf(result));
                 break;
             case "1":
+                if(ComboBoxGrade == "2" || ComboBoxGrade == "3" || ComboBoxGrade == "4"){
+                    boxType = 2;
+                } else {
+                    boxType = 6;
+                }
                 //Result1.setText(String.valueOf(Math.round(result * 1.13)));
                 result = (result * 1.13);
                 break;
             case "2":
+                 if(ComboBoxGrade == "2"){
+                     boxType = 3;
+                 }
+                 if (ComboBoxGrade == "3" || ComboBoxGrade == "4" || ComboBoxGrade == "5"){
+                     boxType = 5;
+                }
                 //Result1.setText(String.valueOf(Math.round((result * 1.16))));
                 result = (result * 1.16);
                 break;
@@ -343,10 +359,25 @@ public class FlexBoxUI extends javax.swing.JFrame {
         //String ReinforcedBoxBottom = (String) ReinforcedB.getSelectedItem();
         switch (ReinforcedBoxBottom) {
             case "Yes":
+                if (boxType == 1){
+                    boxType = 6;
+                }
+                if (boxType == 2) {
+                    boxType = 6;
+                }
+                if (boxType == 3) {
+                    boxType = 4;
+                }
                 result = (result * 1.14);
                 //Result1.setText(String.valueOf((result)));
                 break;
             case "No":
+                if (boxType == 3){
+                    boxType = 3;
+                }
+                if (boxType == 4 || boxType == 5){
+                    boxType = 6;
+                }
                 //Result1.setText(String.valueOf((result)));
                 break;
         }
@@ -354,10 +385,17 @@ public class FlexBoxUI extends javax.swing.JFrame {
         //String ReinforcedBoxCorner = (String) ReinforcedC.getSelectedItem();
         switch (ReinforcedBoxCorner) {
             case "Yes":
+                 if (boxType !=5){
+                     boxType = 6;
+                 }
+                
                 result = (result * 1.10);
                 //Result1.setText(String.valueOf((result)));
                 break;
             case "No":
+                if(boxType == 5){
+                    boxType = 6;
+                }
                 //Result1.setText(String.valueOf((result)));
                 break;
         }
@@ -381,7 +419,7 @@ public class FlexBoxUI extends javax.swing.JFrame {
         } catch (NumberFormatException e) {
             Result1.setText(String.valueOf("Please insert only numbers and do not keep the textbox blank."));
         }
-             
+        
         
         
         if (boxType == 1 || boxType == 2 || boxType == 3 || boxType == 4 || boxType == 5 ) {
