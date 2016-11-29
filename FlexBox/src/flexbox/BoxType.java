@@ -15,18 +15,25 @@ public class BoxType {
     private String ReinforcedBoxCorner = "No";
     private String SealableBox = "No";
 
-    /*
-    * Constructor for class BoxType
-    */
+    /**
+     * Constructor.
+     */
     public BoxType() {
         area = (float) 10.0;
         ComboBoxGrade = "1";
 
     }
 
-    /*
-    * Initialises the paramaters
-    */
+    /**
+     * Initialises the parameters
+     *
+     * @param area
+     * @param cmg
+     * @param cp
+     * @param rbb
+     * @param rbc
+     * @param sb
+     */
     public BoxType(float area, String cmg, String cp, String rbb, String rbc, String sb) {
         this.area = area;
         this.ComboBoxGrade = cmg;
@@ -36,6 +43,9 @@ public class BoxType {
         this.SealableBox = sb;
     }
 
+    /**
+     * Method to calculate the boxType
+     */
     public void createBox() {
         switch (ComboBoxGrade) {
             case "1":
@@ -129,10 +139,16 @@ public class BoxType {
         }
     }
 
+    /**
+     * @return cost
+     */
     public double getCost() {
         return this.cost;
     }
 
+    /**
+     * @return boxType
+     */
     public int getType() {
         return this.boxType;
     }

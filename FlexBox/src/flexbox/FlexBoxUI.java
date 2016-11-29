@@ -368,6 +368,9 @@ public class FlexBoxUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ColourBoxActionPerformed
 
+    /**
+     * @param args Runs the program. Initialises the gui.
+     */
     public static void main(String[] args) {
         FlexBoxUI gui = new FlexBoxUI();
         new FlexBoxUI().setVisible(true);
