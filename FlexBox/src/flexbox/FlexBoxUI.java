@@ -1,5 +1,7 @@
 package flexbox;
 
+import javax.swing.SwingUtilities;
+
 /**
  * @author danni
  * @author tom_m
@@ -328,130 +330,148 @@ public class FlexBoxUI extends javax.swing.JFrame {
         int boxType = 0;
 
         try {
-            float num1, num2, num3, Area;
-            num1 = Float.parseFloat(HeightTextbox.getText());
-            num2 = Float.parseFloat(LengthTextbox.getText());
-            num3 = Float.parseFloat(WidthTextbox.getText());
-            Area = ((2 * (num1 * num2)) + (2 * (num2 * num3)) + (2 * (num1 * num3)));
-            Result1.setText(String.valueOf(Area));
-            num1 = Float.parseFloat(Result1.getText());
+            float height, length, width, Area; 
+            height = Float.parseFloat(HeightTextbox.getText());
+            length = Float.parseFloat(LengthTextbox.getText());
+            width = Float.parseFloat(WidthTextbox.getText());
+            Area = ((2 * (height * length)) + (2 * (length * width)) + (2 * (height * width)));
+            Result1.setText(String.valueOf(Area)); 
             
-            //String num2 = (String) FlexboxComboBoxCardGrades.getSelectedItem();
-            switch (ComboBoxGrade) {
-                case "1":
-                    result = (num1 * 0.5);
-                    break;
-                case "2":
-                    result = (num1 * 0.6);
-                    break;
-                case "3":
-                    result = (num1 * 0.72);
-                    break;
-                case "4":
-                    result = (num1 * 0.9);
-                    break;
-                case "5":
-                    result = (num1 * 1.4);
-                    break;
-            }
-            //Result1.setText(String.valueOf(result));
-
-            //String colourPicker = (String) ColourBox.getSelectedItem();
-            switch (ColourPicker) {
-                case "0":
-                    if ("1".equals(ComboBoxGrade) || "2".equals(ComboBoxGrade) || "3".equals(ComboBoxGrade)) {
-                        boxType = 1;
-                    } else {
-                        boxType = 6; //Setting it to 6 returns an error.
-                    }
-                    //Result1.setText(String.valueOf(result));
-                    break;
-                case "1":
-                    if ("2".equals(ComboBoxGrade) || "3".equals(ComboBoxGrade) || "4".equals(ComboBoxGrade)) {
-                        boxType = 2;
-                    } else {
-                        boxType = 6;
-                    }
-                    //Result1.setText(String.valueOf(Math.round(result * 1.13)));
-                    result = (result * 1.13);
-                    break;
-                case "2":
-                    if ("2".equals(ComboBoxGrade)) {
-                        boxType = 3;
-                    }
-                    if ("3".equals(ComboBoxGrade) || "4".equals(ComboBoxGrade) || "5".equals(ComboBoxGrade)) {
-                        boxType = 5;
-                    }
-                    //Result1.setText(String.valueOf(Math.round((result * 1.16))));
-                    result = (result * 1.16);
-                    break;
-            }
-
-            //String ReinforcedBoxBottom = (String) ReinforcedB.getSelectedItem();
-            switch (ReinforcedBoxBottom) {
-                case "Yes":
-                    if (boxType == 1) {
-                        boxType = 6;
-                    }
-                    if (boxType == 2) {
-                        boxType = 6;
-                    }
-                    if (boxType == 3) {
-                        boxType = 4;
-                    }
-                    result = (result * 1.14);
-                    //Result1.setText(String.valueOf((result)));
-                    break;
-                case "No":
-                    if (boxType == 3) {
-                        boxType = 3;
-                    }
-                    if (boxType == 4 || boxType == 5) {
-                        boxType = 6;
-                    }
-                    //Result1.setText(String.valueOf((result)));
-                    break;
-            }
-
-            //String ReinforcedBoxCorner = (String) ReinforcedC.getSelectedItem();
-            switch (ReinforcedBoxCorner) {
-                case "Yes":
-                    if (boxType != 5) {
-                        boxType = 6;
-                    }
-
-                    result = (result * 1.10);
-                    //Result1.setText(String.valueOf((result)));
-                    break;
-                case "No":
-                    if (boxType == 5) {
-                        boxType = 6;
-                    }
-                    //Result1.setText(String.valueOf((result)));
-                    break;
-            }
-
-            //String SealableBox = (String) SealableTopsBox.getSelectedItem();
-            switch (SealableBox) {
-                case "Yes":
-                    result = (result * 1.08);
-                    //Result1.setText(String.valueOf((result)));
-                    break;
-                case "No":
-                    //Result1.setText(String.valueOf((result)));
-                    break;
-            }
-
+            BoxType box = new BoxType(Area, ComboBoxGrade, ColourPicker, ReinforcedBoxBottom, ReinforcedBoxCorner, SealableBox);
+            box.createBox(); 
+            result = box.getCost();
+            boxType = box.getType(); 
+            
             float amount;
             amount = Float.parseFloat(AmountTextbox.getText());
             result = result * amount;
-            //Result1.setText(String.valueOf((result)));
 
             if (boxType == 1 || boxType == 2 || boxType == 3 || boxType == 4 || boxType == 5) {
                 Result1.setText(String.valueOf((result)));
             } else {
                 Result1.setText(String.valueOf("Invalid Box Type, Please change order"));
             }
+
+            // lemme explain.  Everything after this is multiplied, so if you remove the result1 line it outputs 0 everytime. Not sure if the second line is needed
+            
+            // So num1 = area?
+            // no Area = area
+             /// no its not num1 = Result1.getText which you just set to area waithold on
+             //umm what the fuck i guess it is area.
+            
+            
+            //String num2 = (String) FlexboxComboBoxCardGrades.getSelectedItem();
+//            switch (ComboBoxGrade) {
+//                case "1":
+//                    result = (num1 * 0.5);
+//                    break;
+//                case "2":
+//                    result = (num1 * 0.6);
+//                    break;
+//                case "3":
+//                    result = (num1 * 0.72);
+//                    break;
+//                case "4":
+//                    result = (num1 * 0.9);
+//                    break;
+//                case "5":
+//                    result = (num1 * 1.4);
+//                    break;
+//            }
+            //Result1.setText(String.valueOf(result));
+
+            //String colourPicker = (String) ColourBox.getSelectedItem();
+//            switch (ColourPicker) {
+//                case "0":
+//                    if ("1".equals(ComboBoxGrade) || "2".equals(ComboBoxGrade) || "3".equals(ComboBoxGrade)) {
+//                        boxType = 1;
+//                    } else {
+//                        boxType = 6; //Setting it to 6 returns an error.
+//                    }
+//                    //Result1.setText(String.valueOf(result));
+//                    break;
+//                case "1":
+//                    if ("2".equals(ComboBoxGrade) || "3".equals(ComboBoxGrade) || "4".equals(ComboBoxGrade)) {
+//                        boxType = 2;
+//                    } else {
+//                        boxType = 6;
+//                    }
+//                    //Result1.setText(String.valueOf(Math.round(result * 1.13)));
+//                    result = (result * 1.13);
+//                    break;
+//                case "2":
+//                    if ("2".equals(ComboBoxGrade)) {
+//                        boxType = 3;
+//                    }
+//                    if ("3".equals(ComboBoxGrade) || "4".equals(ComboBoxGrade) || "5".equals(ComboBoxGrade)) {
+//                        boxType = 5;
+//                    }
+//                    //Result1.setText(String.valueOf(Math.round((result * 1.16))));
+//                    result = (result * 1.16);
+//                    break;
+//            }
+
+            //String ReinforcedBoxBottom = (String) ReinforcedB.getSelectedItem();
+//            switch (ReinforcedBoxBottom) {
+//                case "Yes":
+//                    if (boxType == 1) {
+//                        boxType = 6;
+//                    }
+//                    if (boxType == 2) {
+//                        boxType = 6;
+//                    }
+//                    if (boxType == 3) {
+//                        boxType = 4;
+//                    }
+//                    result = (result * 1.14);
+//                    //Result1.setText(String.valueOf((result)));
+//                    break;
+//                case "No":
+//                    if (boxType == 3) {
+//                        boxType = 3;
+//                    }
+//                    if (boxType == 4 || boxType == 5) {
+//                        boxType = 6;
+//                    }
+//                    //Result1.setText(String.valueOf((result)));
+//                    break;
+//            }
+
+            //String ReinforcedBoxCorner = (String) ReinforcedC.getSelectedItem();
+//            switch (ReinforcedBoxCorner) {
+//                case "Yes":
+//                    if (boxType != 5) {
+//                        boxType = 6;
+//                    }
+//
+//                    result = (result * 1.10);
+//                    //Result1.setText(String.valueOf((result)));
+//                    break;
+//                case "No":
+//                    if (boxType == 5) {
+//                        boxType = 6;
+//                    }
+//                    //Result1.setText(String.valueOf((result)));
+//                    break;
+//            }
+//
+//            //String SealableBox = (String) SealableTopsBox.getSelectedItem();
+//            switch (SealableBox) {
+//                case "Yes":
+//                    result = (result * 1.08);
+//                    //Result1.setText(String.valueOf((result)));
+//                    break;
+//                case "No":
+//                    //Result1.setText(String.valueOf((result)));
+//                    break;
+//            }
+            
+            // Float amount? OH thats the overall total? basically just timeses the cost of the box by the amount wanted Oh so like baseValue * additonalcosts? basically
+            // basically it takes the cost of everything selected and times it by how many are requested. so lets say a box costs48 with reinforced corners
+            //plus card grade and everything. It takes the total cost an times it by the amount requested. ye basically quantity
+            
+            
+            
 
         } catch (NumberFormatException e) {
             Result1.setText(String.valueOf("Please insert a number and don't keep the textbox empty."));
@@ -474,16 +494,32 @@ public class FlexBoxUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ColourBoxActionPerformed
 
+    public static void main(String[] args) {
+      FlexBoxUI gui = new FlexBoxUI();
+      new FlexBoxUI().setVisible(true);
+    }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         float result;
         try {
         result = Float.parseFloat(Result1.getText());
         total = result + total;
         Result2.setText(String.valueOf((total)));
+        
+        WidthTextbox.setText("");
+        LengthTextbox.setText("");
+        HeightTextbox.setText("");
+        AmountTextbox.setText("");
+        FlexboxComboBoxCardGrades.setSelectedIndex(0);
+        ColourBox.setSelectedIndex(0);
+        ReinforcedB.setSelectedIndex(0);
+        ReinforcedC.setSelectedIndex(0);
+        SealableTopsBox.setSelectedIndex(0);
+        Result1.setText("");
         } catch(NumberFormatException e) {
             Result2.setText(String.valueOf(("Please input a number and do not keep blank")));
         }
-        
+    
+    
     }//GEN-LAST:event_jButton1ActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Amount;
