@@ -393,7 +393,7 @@ public class FlexBoxUI extends javax.swing.JFrame {
             SealableTopsBox.setSelectedIndex(0);
             Result1.setText("");
         } catch (NumberFormatException e) {
-            Result2.setText(String.valueOf(("Please input a number and do not keep blank")));
+            Result2.setText(String.valueOf(("Please insert a number and don't keep the textbox empty.")));
         }
 
 
