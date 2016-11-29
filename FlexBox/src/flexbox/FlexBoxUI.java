@@ -6,7 +6,8 @@ package flexbox;
  */
 public class FlexBoxUI extends javax.swing.JFrame {
 
-    float total;
+    double total;
+    double result;
 
     /**
      * Creates new form FlexBoxUI
@@ -343,7 +344,9 @@ public class FlexBoxUI extends javax.swing.JFrame {
             result = result * amount;
 
             if (boxType == 1 || boxType == 2 || boxType == 3 || boxType == 4 || boxType == 5) {
+                total = total + result;
                 Result1.setText(String.valueOf((result)));
+                Result2.setText(String.valueOf(total));
             } else {
                 Result1.setText(String.valueOf("Invalid Box Type, Please change order"));
             }
@@ -376,10 +379,8 @@ public class FlexBoxUI extends javax.swing.JFrame {
         new FlexBoxUI().setVisible(true);
     }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        float result;
         try {
             result = Float.parseFloat(Result1.getText());
-            total = result + total;
             Result2.setText(String.valueOf((total)));
 
             WidthTextbox.setText("");
