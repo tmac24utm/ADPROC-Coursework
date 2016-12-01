@@ -353,7 +353,7 @@ public class FlexBoxUI extends javax.swing.JFrame {
             amount = Float.parseFloat(AmountTextbox.getText());
             result = (int) (result * amount);
 
-            if (boxType >= 1 || boxType <= 5) {
+            if (boxType >= 1 && boxType <= 5) {
                 total = total + result;
                 Result1.setText(String.valueOf((result)));
                 Result2.setText(String.valueOf(total));
