@@ -391,7 +391,7 @@ public class FlexBoxUI extends javax.swing.JFrame {
     }
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
+    try {
         result = (int) Float.parseFloat(Result1.getText());
         Result2.setText(String.valueOf((total)));
 
@@ -405,6 +405,9 @@ public class FlexBoxUI extends javax.swing.JFrame {
         ReinforcedC.setSelectedIndex(0);
         SealableTopsBox.setSelectedIndex(0);
         Result1.setText("");
+    } catch (NumberFormatException e){
+        Result2.setText(String.valueOf("Please insert a number and don't keep the textbox empty."));
+    }
     }//GEN-LAST:event_jButton1ActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Amount;
