@@ -1,12 +1,12 @@
 package flexbox;
 
 /**
- * @author tom_m
- * @author danni
+ * @author 777900
  */
 public class BoxType {
 
-    private double cost = 0.0;
+    private double baseCost = 0.0;
+    private double finalCost = 0.0;
     private String ComboBoxGrade = "0";
     private float area = (float) 0.0;
     private String ColourPicker = "0";
@@ -16,52 +16,44 @@ public class BoxType {
     private String SealableBox = "No";
 
     /**
-     * Constructor.
-     */
-    public BoxType() {
-        area = (float) 10.0;
-        ComboBoxGrade = "1";
-
-    }
-
-    /**
      * Initialises the parameters
      *
      * @param area
-     * @param cmg
+     * @param cbg
      * @param cp
      * @param rbb
      * @param rbc
      * @param sb
      */
-    public BoxType(float area, String cmg, String cp, String rbb, String rbc, String sb) {
+    public BoxType(float area, String cbg, String cp, String rbb, String rbc, String sb) {
         this.area = area;
-        this.ComboBoxGrade = cmg;
+        this.ComboBoxGrade = cbg;
         this.ColourPicker = cp;
         this.ReinforcedBoxBottom = rbb;
         this.ReinforcedBoxCorner = rbc;
         this.SealableBox = sb;
     }
-
+   
     /**
      * Method to calculate the boxType
      */
-    public void createBox() {
+    public void createBox() {  
+        double percentageAddon = 0.0;
         switch (ComboBoxGrade) {
             case "1":
-                cost = (area * 0.5);
+                baseCost += (area * 0.5);
                 break;
             case "2":
-                cost = (area * 0.6);
+                baseCost += (area * 0.6);
                 break;
             case "3":
-                cost = (area * 0.72);
+                baseCost += (area * 0.72);
                 break;
             case "4":
-                cost = (area * 0.9);
+                baseCost += (area * 0.9);
                 break;
             case "5":
-                cost = (area * 1.4);
+                baseCost += (area * 1.4);
                 break;
         }
 
@@ -79,7 +71,7 @@ public class BoxType {
                 } else {
                     boxType = 6;
                 }
-                cost = (cost * 1.13);
+                percentageAddon += (baseCost * 0.13);
                 break;
             case "2":
                 if ("2".equals(ComboBoxGrade)) {
@@ -88,7 +80,7 @@ public class BoxType {
                 if ("3".equals(ComboBoxGrade) || "4".equals(ComboBoxGrade) || "5".equals(ComboBoxGrade)) {
                     boxType = 5;
                 }
-                cost = (cost * 1.16);
+                percentageAddon += (baseCost * 0.16);
                 break;
         }
 
@@ -103,7 +95,7 @@ public class BoxType {
                 if (boxType == 3) {
                     boxType = 4;
                 }
-                cost = (cost * 1.14);
+                percentageAddon += (baseCost * 0.14);
                 break;
             case "No":
                 if (boxType == 3) {
@@ -121,7 +113,7 @@ public class BoxType {
                     boxType = 6;
                 }
 
-                cost = (cost * 1.10);
+                percentageAddon += (baseCost * 0.10);
                 break;
             case "No":
                 if (boxType == 5) {
@@ -132,18 +124,20 @@ public class BoxType {
 
         switch (SealableBox) {
             case "Yes":
-                cost = (cost * 1.08);
+                percentageAddon += (baseCost * 0.08);
                 break;
             case "No":
                 break;
         }
+        
+        this.finalCost = this.baseCost + percentageAddon;
     }
 
     /**
      * @return cost
      */
     public double getCost() {
-        return this.cost;
+        return this.finalCost;
     }
 
     /**
